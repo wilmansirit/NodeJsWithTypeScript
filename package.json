@@ -1,0 +1,36 @@
+{
+  "name": "nodejswithtypescript",
+  "version": "1.0.0",
+  "description": "Working with node js and TypesSript",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec ts-node ./src/server/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wilmansirit/NodeJsWithTypeScript.git"
+  },
+  "keywords": [
+    "NodeJs",
+    "TypeScript",
+    "Restify"
+  ],
+  "author": "@wsirit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wilmansirit/NodeJsWithTypeScript/issues"
+  },
+  "homepage": "https://github.com/wilmansirit/NodeJsWithTypeScript#readme",
+  "dependencies": {
+    "@types/restify": "^8.4.2",
+    "pg": "^8.0.3",
+    "restify": "^8.5.1",
+    "rimraf": "^3.0.2",
+    "typeorm": "^0.2.24"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  }
+}
