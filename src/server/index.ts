@@ -1,24 +1,27 @@
-// import * as restify from 'restify';
+import * as restify from 'restify';
 import { HttpServer } from "./httpServer";
 import { Server, RequestHandler } from "restify";
+import { CONTROLLERS } from '../controllers';
 
 export class ApiServer implements HttpServer {
     
     private restify: Server;
 
-    get(url: string, requestHandler: import("restify").RequestHandler): void {
-        
+    get(url: string, requestHandler: import("restify").RequestHandler): void {        
         this.addRoute('get', url, requestHandler);
     
     }
-    post(url: string, requestHandler: import("restify").RequestHandler): void {
-        throw new Error("Method not implemented.");
+    post(url: string, requestHandler: import("restify").RequestHandler): void {        
+        this.addRoute('post', url, requestHandler);
+        
     }
-    put(url: string, requestHandler: import("restify").RequestHandler): void {
-        throw new Error("Method not implemented.");
+    put(url: string, requestHandler: import("restify").RequestHandler): void {        
+        this.addRoute('put', url, requestHandler);
+        
     }
-    del(url: string, requestHandler: import("restify").RequestHandler): void {
-        throw new Error("Method not implemented.");
+    del(url: string, requestHandler: import("restify").RequestHandler): void {        
+        this.addRoute('del', url, requestHandler);
+        
     }
 
 
@@ -37,6 +40,20 @@ export class ApiServer implements HttpServer {
 
         console.log(`Added route ${method.toUpperCase()}: ${url}`);
         
+    }
+
+    public start(port: number): void {
+
+        this.restify = restify.createServer();
+        this.restify.use(restify.plugins.bodyParser());
+        this.restify.use(restify.plugins.queryParser());
+
+        // TODO  Controller init
+        // CONTROLLERS.forEach(controller => controller.ini);
+        CONTROLLERS.forEach(controller => controller.initialize(this))
+
+        this.restify.listen(port, ()=> console.log(`Server is up and running on port ${port}`));
+
     }
 
     // get(url: string, requestHandler: restify.RequestHandler): void {
