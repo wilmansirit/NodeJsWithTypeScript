@@ -4,7 +4,7 @@
   "description": "Working with node js and TypesSript",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node ./src/server/index.ts"
+    "dev": "nodemon --exec ts-node ./src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "dependencies": {
     "@types/restify": "^8.4.2",
     "pg": "^8.0.3",
+    "reflect-metadata": "^0.1.13",
     "restify": "^8.5.1",
     "rimraf": "^3.0.2",
     "typeorm": "^0.2.24"
