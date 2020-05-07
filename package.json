@@ -23,6 +23,7 @@
   "homepage": "https://github.com/wilmansirit/NodeJsWithTypeScript#readme",
   "dependencies": {
     "@types/restify": "^8.4.2",
+    "dotenv": "^8.2.0",
     "pg": "^8.0.3",
     "reflect-metadata": "^0.1.13",
     "restify": "^8.5.1",

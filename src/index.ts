@@ -1,7 +1,7 @@
-
-import 'reflect-metadata';
-import { ApiServer } from './server';
+import "reflect-metadata";
+import { ApiServer } from "./server";
+import { env } from "../config";
 
 const server = new ApiServer();
 
-server.start(+process.env.PORT || 8080);
+server.start(<number>env.PORT);
