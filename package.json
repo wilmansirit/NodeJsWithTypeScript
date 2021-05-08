@@ -28,7 +28,7 @@
     "reflect-metadata": "^0.1.13",
     "restify": "^8.5.1",
     "rimraf": "^3.0.2",
-    "typeorm": "^0.2.24"
+    "typeorm": "^0.2.25"
   },
   "devDependencies": {
     "nodemon": "^2.0.3",
