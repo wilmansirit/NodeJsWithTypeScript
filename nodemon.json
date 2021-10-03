@@ -1,0 +1,8 @@
+{
+  "verbose": true,
+  "events": {
+    "restart": "kill-port 3000",
+    "crash": "kill-port 3000"
+  },
+  "delay": 2500
+}

@@ -7,25 +7,25 @@ export class ApiServer implements HttpServer {
     
     private restify: Server;
 
-    get(url: string, requestHandler: import("restify").RequestHandler): void {        
+    get(url: string, requestHandler: RequestHandler): void {        
         this.addRoute('get', url, requestHandler);
     
     }
-    post(url: string, requestHandler: import("restify").RequestHandler): void {        
+    post(url: string, requestHandler: RequestHandler): void {        
         this.addRoute('post', url, requestHandler);
         
     }
-    put(url: string, requestHandler: import("restify").RequestHandler): void {        
+    put(url: string, requestHandler: RequestHandler): void {        
         this.addRoute('put', url, requestHandler);
         
     }
-    del(url: string, requestHandler: import("restify").RequestHandler): void {        
+    del(url: string, requestHandler: RequestHandler): void {        
         this.addRoute('del', url, requestHandler);
         
     }
 
 
-    private addRoute(method: 'get'| 'post'|'put'|'del',  url: string, requestHandler: RequestHandler): void {
+    private addRoute(method: 'get'|'post'|'put'|'del',  url: string, requestHandler: RequestHandler): void {
 
         this.restify[method](url, async (req, res, next) => {
 
@@ -38,11 +38,10 @@ export class ApiServer implements HttpServer {
             };
         });
 
-        console.log(`Added route ${method.toUpperCase()}: ${url}`);
-        
+        console.log(`Added route ${method.toUpperCase()}: ${url}`);        
     }
 
-    public start(port: number): void {
+    start(port: number): void {
 
         this.restify = restify.createServer();
         this.restify.use(restify.plugins.bodyParser());
@@ -55,18 +54,4 @@ export class ApiServer implements HttpServer {
         this.restify.listen(port, ()=> console.log(`Server is up and running on port ${port}`));
 
     }
-
-    // get(url: string, requestHandler: restify.RequestHandler): void {
-    //     throw new Error("Method not implemented.");
-    // };
-    // post(url: string, requestHandler: restify.RequestHandler): void {
-    //     throw new Error("Method not implemented.");
-    // };
-    // put(url: string, requestHandler: restify.RequestHandler): void {
-    //     throw new Error("Method not implemented.");
-    // };
-    // del(url: string, requestHandler: restify.RequestHandler): void {
-    //     throw new Error("Method not implemented.");
-    // };
-
 }
